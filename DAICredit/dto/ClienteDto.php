@@ -11,13 +11,13 @@ class ClienteDto {
     private $hijos;
     private $telefono;
     private $email;
+    private $comuna;
     private $direccion;
     private $educacion;
     private $renta;
     private $sueldoLiquido;
     private $enfermedadCronica;
-    private $estadoCivil;
-    private $estadoSolicitud;
+    private $estadoCivil;    
 
     public function __construct() {
         $this->id = null;
@@ -29,16 +29,23 @@ class ClienteDto {
         $this->hijos = null;
         $this->telefono = null;
         $this->email = null;
-        $this->direccion = null;
+        $this->comuna = new ComunaDto();
+        $this->direccion = null;        
         $this->educacion = null;
         $this->renta = null;
         $this->sueldoLiquido = null;
         $this->enfermedadCronica = false;
-        $this->estadoCivil = null;
-        $this->estadoSolicitud = null;
+        $this->estadoCivil = new EstadoCivilDto();        
     }
-    
-    function getId() {
+    function getComuna() {
+        return $this->comuna;
+    }
+
+    function setComuna($comuna) {
+        $this->comuna = $comuna;
+    }
+
+        function getId() {
         return $this->id;
     }
 
